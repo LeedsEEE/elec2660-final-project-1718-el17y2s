@@ -106,24 +106,24 @@
     // Configure the cell...
     
     if (indexPath.section==0){
-        module*tempmodule=[self.data.Meat objectAtIndex:indexPath.row];
+        tempmodule=[self.data.Meat objectAtIndex:indexPath.row];
         
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
         
     }
     else if (indexPath.section==1){
-        module*tempmodule=[self.data.Fruit objectAtIndex:indexPath.row];
+        tempmodule=[self.data.Fruit objectAtIndex:indexPath.row];
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
     }
     else if (indexPath.section==2){
-        module*tempmodule=[self.data.vegetable objectAtIndex:indexPath.row];
+        tempmodule=[self.data.vegetable objectAtIndex:indexPath.row];
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
     }
     else if (indexPath.section==3){
-        module*tempmodule=[self.data.fastfood objectAtIndex:indexPath.row];
+        tempmodule=[self.data.fastfood objectAtIndex:indexPath.row];
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
     }
