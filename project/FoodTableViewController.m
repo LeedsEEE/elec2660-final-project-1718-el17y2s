@@ -1,8 +1,8 @@
 //
-//  FoodTableViewController.m
+//  TableViewController.m
 //  project
 //
-//  Created by 孙宇洋 on 2017/11/22.
+//  Created by 孙宇洋 on 2017/11/12.
 //  Copyright © 2017年 University of Leeds. All rights reserved.
 //
 
@@ -44,19 +44,19 @@
         
     }
     else if(indexPath.section==1){
-        module*tempmodule=[self.data.Fruit objectAtIndex:indexPath.row];
+        tempmodule=[self.data.Fruit objectAtIndex:indexPath.row];
         temCalorie =tempmodule.kcl;
     }
     else if(indexPath.section==2){
-        module*tempmodule=[self.data.vegetable objectAtIndex:indexPath.row];
+        tempmodule=[self.data.vegetable objectAtIndex:indexPath.row];
         temCalorie =tempmodule.kcl;
     }
     else if(indexPath.section==3){
-        module*tempmodule=[self.data.fastfood objectAtIndex:indexPath.row];
+        tempmodule=[self.data.fastfood objectAtIndex:indexPath.row];
         temCalorie =tempmodule.kcl;
     }
-    else if(indexPath.section==4){
-        module*tempmodule=[self.data.staplefood objectAtIndex:indexPath.row];
+    else {
+        tempmodule=[self.data.staplefood objectAtIndex:indexPath.row];
         temCalorie =tempmodule.kcl;
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
@@ -93,7 +93,7 @@
     else if(section==3){
         numberofrows =self.data.fastfood.count;
     }
-    else {
+    else{
         numberofrows =self.data.staplefood.count;
     }
     return numberofrows;
@@ -106,32 +106,34 @@
     // Configure the cell...
     
     if (indexPath.section==0){
-        tempmodule=[self.data.Meat objectAtIndex:indexPath.row];
+        module*tempmodule=[self.data.Meat objectAtIndex:indexPath.row];
         
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
         
-    }
-    else if (indexPath.section==1){
-        tempmodule=[self.data.Fruit objectAtIndex:indexPath.row];
+    }else if (indexPath.section==1){
+        module*tempmodule=[self.data.Fruit objectAtIndex:indexPath.row];
+        
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
-    }
-    else if (indexPath.section==2){
-        tempmodule=[self.data.vegetable objectAtIndex:indexPath.row];
+    }else if (indexPath.section==2){
+        module*tempmodule=[self.data.vegetable objectAtIndex:indexPath.row];
+        
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
     }
     else if (indexPath.section==3){
-        tempmodule=[self.data.fastfood objectAtIndex:indexPath.row];
+        module*tempmodule=[self.data.fastfood objectAtIndex:indexPath.row];
+        
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
-    }
-    else {
+    }else {
         module*tempmodule=[self.data.staplefood objectAtIndex:indexPath.row];
+        
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"100g per %ld kcl",tempmodule.kcl];
     }
+    
     
     return cell;
 }
@@ -199,6 +201,5 @@
         return [NSString stringWithFormat:@"Staple food"];
     }
 }
-
 
 @end
