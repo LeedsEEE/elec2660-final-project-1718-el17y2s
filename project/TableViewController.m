@@ -43,8 +43,20 @@
         temCalorie =tempmodule.kcl;
         
     }
-    else{
+    else if(indexPath.section==1){
         tempmodule=[self.data.outerExercise objectAtIndex:indexPath.row];
+        temCalorie =tempmodule.kcl;
+    }
+    else if(indexPath.section==2){
+        tempmodule=[self.data.powermovement objectAtIndex:indexPath.row];
+        temCalorie =tempmodule.kcl;
+    }
+    else if(indexPath.section==3){
+        tempmodule=[self.data.dailylife objectAtIndex:indexPath.row];
+        temCalorie =tempmodule.kcl;
+    }
+    else {
+        tempmodule=[self.data.watersports objectAtIndex:indexPath.row];
         temCalorie =tempmodule.kcl;
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
@@ -100,7 +112,7 @@
         cell.detailTextLabel.text=[NSString stringWithFormat:@"%ld kcl  per  30min",tempmodule.kcl];
         
     }else if (indexPath.section==1){
-        module*tempmodule=[self.data.ballgames objectAtIndex:indexPath.row];
+        module*tempmodule=[self.data.outerExercise objectAtIndex:indexPath.row];
         
         cell.textLabel.text=tempmodule.name;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"%ld kcl  per  30min",tempmodule.kcl];
